@@ -1,0 +1,5 @@
+This repository contains the script for changing the Iceape Web browser settings.  These changes from the default setup in antiX Linux are:
+1. Disable IPv6 for more speed
+2. When commanded by a web page to open a new window, open a new tab instead.
+3. Do not automatically switch to new tabs.
+4. Automatically remove private data upon closing the browswer, but also offer the option to retain it.
