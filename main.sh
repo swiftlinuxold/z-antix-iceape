@@ -51,12 +51,15 @@ else
 	chown demo:users /usr/share/iceape/defaults/profile/bookmarks.html
 fi
 
-echo "Replacing /home/(username)/.mozilla/seamonkey/*.default/bookmarks.html"
 if [ $IS_CHROOT -eq 0 ]; then
+	echo "Replacing /home/(username)/.mozilla/seamonkey/*.default/bookmarks.html"
     rm /home/$USERNAME/.mozilla/seamonkey/*.default/bookmarks.html
 	cp  $FILE_TO_COPY /home/$USERNAME/.mozilla/seamonkey/*.default
 	chown $USERNAME:users /home/$USERNAME/.mozilla/seamonkey/*.default/bookmarks.html
 fi
 
-
+# Run ad-blocker
+# Note that the script here is the original with the zenity commands deactivated.
+# Zenity does not work in chroot mode.
+bash $DIR_DEVELOP/iceape/block-advert.sh
 
