@@ -213,3 +213,4 @@ build_adlist_all
 append_adlist
 cleanup
 success
+exit 0
