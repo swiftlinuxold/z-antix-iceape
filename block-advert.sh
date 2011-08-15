@@ -14,7 +14,7 @@
 # then appends them to /etc/hosts so that
 # many online adverts are blocked from sight
 
-export title="antiX Advert Blocker"
+export title="Swift Linux Advert Blocker"
 
 # the markers used to find the changes in /etc/hosts, which are made by this app
 export markerstart='# pup-advert-blocker IPs below'
@@ -110,7 +110,7 @@ function wget_dialog
         #       --text "Loading  adlist from $domain" \
         #       --percentage=0 \
         #       --auto-close
-	echo "Loading adlist from $domain"
+        echo "Loading adlist from $domain"
 }
 
 # download the ads lists
@@ -141,10 +141,11 @@ function download_adlist
 function success
 {
 	# tell user 
-	# zenity --info --title "$title" --text "Success - your settings have been changed.\n\n\
+	#zenity --info --title "$title" --text "Success - your settings have been changed.\n\n\
 # Your hosts file has been updated.\n\
 # Restart your browser to see the changes."
-	echo "Success - Block Advert updated your hosts file."
+	echo "Success - your settings have been changed."
+	echo "Your /etc/hosts file has been updated."
 }
 
 #=======================================================================
@@ -158,6 +159,7 @@ function success
 # if [ $rsp != 0 ]; then
 #    exit 0
 # fi
+
 echo "Beginning Advert Blocker"
 
 # selection dialog
@@ -172,7 +174,7 @@ echo "Beginning Advert Blocker"
 #             FALSE "yoyo.org")
 
 #echo $ans
-export ans="mvps.org:sysctl.org:technobeta.com:yoyo.org"
+ans="mvps.org:sysctl.org:technobeta.com:yoyo.org"
 
 # transform the list separated by ':' into arr
 arr=$(echo $ans | tr ":" "\n")
@@ -213,4 +215,3 @@ build_adlist_all
 append_adlist
 cleanup
 success
-exit 0
